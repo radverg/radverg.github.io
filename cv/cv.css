@@ -79,7 +79,7 @@ main {
 }
 
 .side-container {
-    flex: 0 0 30%;
+    flex: 0 0 18rem;
     background-color: var(--side-panel-color);
     color: white;
     align-self: stretch;
