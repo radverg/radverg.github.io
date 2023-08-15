@@ -1,6 +1,24 @@
 
 @page {
     margin: 0;
+    /* size: A4; */
+}
+
+@media print {
+    html, body {
+        font-size: 8pt;
+        width: 210mm;
+        height: 297mm;
+    }
+
+    .side-container {
+        flex: 0 0 10rem;
+        /* align-self: stretch; */
+    }
+
+    main {
+        height: 100%;
+    }
 }
 
 :root {
