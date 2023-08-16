@@ -1,0 +1,16 @@
+{
+  "name": "cv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo $PWD",
+    "pdf": "puppeteer-pdf-generator --path $PWD/index.html --out cv.pdf"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "hbs-cli": "^1.4.1",
+    "puppeteer-pdf-generator": "^1.0.15"
+  }
+}
