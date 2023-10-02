@@ -22,7 +22,7 @@
 }
 
 :root {
-    --side-panel-color: rgb(44, 44, 44);
+    --side-panel-color: rgb(56, 38, 145);
 
     /* List items */
     
@@ -32,7 +32,7 @@
 body {
     margin: 0; /* 1 */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: normal;
     line-height: 1.5;
     color: #212529;
@@ -70,6 +70,7 @@ img.portrait {
 h2 {
     font-size: 100%;
     border-bottom: 1px solid gray;
+    border-radius: 5px;
     padding: 0.4rem 0.7rem;margin-top: 0;
     margin-bottom: .5rem;
     font-weight: normal;
@@ -109,6 +110,10 @@ main {
 
 .side-container h2 {
     color: rgb(230, 230, 230);
+    border: 1px solid;
+    text-align: center;
+    background-color: rgb(20, 20, 114);
+    font-size: 80%;
 }
 
 .side-container a { 
@@ -166,6 +171,7 @@ dt.icon-container i {
 
 article {
     border: 1px solid rgb(216, 216, 216);
+    border-radius: 5px;
     padding: 0.5em;
     margin-bottom: 0.5rem;
 }
