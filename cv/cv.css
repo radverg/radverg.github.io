@@ -1,15 +1,11 @@
-
-@page {
-    margin: 0;
-    /* size: A4; */
-}
-
 :root {
-    --side-panel-color: rgb(90, 68, 201);
+    --primary-color: rgb(90, 68, 201);
+    --side-panel-item-bgcolor: rgb(245, 245, 245);
+    --main-panel-item-bgcolor: rgb(245, 245, 245);
 }
 
 body {
-    margin-top: 1rem; /* 1 */
+    margin-top: 1rem;
     margin-bottom: 1rem;
     display: flex;
     justify-content: center;
@@ -18,11 +14,9 @@ body {
     font-weight: normal;
     line-height: 1.5;
     color: #212529;
-    text-align: left; /* 3 */
-    background-color: #fff; /* 2 */
+    text-align: left;
+    background-color: #fff;
 }
-
-
 
 h1 {
     margin-top: 0.8rem;
@@ -61,11 +55,9 @@ h2 {
 
 .main-container h2 {
     font-size: 105%;
-    /* font-weight: bold; */
-    /* border-left: 3px solid rgb(48, 48, 48); */
     border-bottom: none;
     margin-bottom: 0.5rem;
-    background-color: var(--side-panel-color);
+    background-color: var(--primary-color);
     color: rgb(248, 248, 248);
 }
 
@@ -84,7 +76,7 @@ main {
 
 .side-container {
     flex: 0 0 18rem;
-    background-color: var(--side-panel-color);
+    background-color: var(--primary-color);
     color: white;
     align-self: stretch;
     border-radius: 5px;
@@ -122,7 +114,6 @@ ul {
 
 ul.item-list {
     display: flex;
-    /* justify-content:start; */
     list-style: none;
     flex-wrap: wrap;
     margin: 0;
@@ -135,6 +126,14 @@ ul.item-list li {
     border-radius: 3rem;
     background-color: rgb(219, 218, 218);
     font-size: 80%;
+}
+
+.side-container .item-list li {
+    background-color: var(--side-panel-item-bgcolor);
+}
+
+.main-container .item-list li {
+    background-color: var(--main-panel-item-bgcolor);
 }
 
 dl div {
@@ -194,6 +193,8 @@ article ol {
     }
     .side-container {
         border-radius: 0;
+        overflow: auto; /* Prevent margin collapsing */
+        margin-bottom: 1rem;
     }
 }
 
@@ -212,7 +213,6 @@ article ol {
 
     .side-container {
         flex: 0 0 10rem;
-        /* align-self: stretch; */
         border-radius: 0px;
     }
 
@@ -225,3 +225,8 @@ article ol {
     }
 
 }
+
+@page {
+    margin: 0;
+}
+
