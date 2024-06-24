@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="cv.xslt"?>
+
+<CV xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cv_schema.xsd">
+    <PersonalInfo>
+        <FirstName>John</FirstName>
+        <LastName>Doe</LastName>
+        <Email>john.doe@example.com</Email>
+        <Phone>+1234567890</Phone>
+        <Address>1234 Elm Street, Some City, Some Country</Address>
+        <LinkedIn>https://www.linkedin.com/in/johndoe</LinkedIn>
+        <GitHub>https://github.com/johndoe</GitHub>
+    </PersonalInfo>
+    <Education>
+        <Degree>Bachelor of Science in Computer Science</Degree>
+        <Institution>Some University</Institution>
+        <Year>2018</Year>
+    </Education>
+    <Education>
+        <Degree>Master of Science in Computer Science</Degree>
+        <Institution>Some University</Institution>
+        <Year>2020</Year>
+    </Education>
+    <WorkExperience>
+        <Position>Software Engineer</Position>
+        <Company>Tech Solutions</Company>
+        <StartDate>2020-06-01</StartDate>
+        <EndDate>2022-05-31</EndDate>
+        <Description>Developed and maintained web applications using JavaScript, HTML, and CSS.</Description>
+    </WorkExperience>
+    <WorkExperience>
+        <Position>Senior Software Engineer</Position>
+        <Company>Innovative Apps</Company>
+        <StartDate>2022-06-01</StartDate>
+        <Description>Leading a team of developers in creating innovative software solutions.</Description>
+    </WorkExperience>
+    <Skills>
+        <Skill>JavaScript</Skill>
+        <Skill>HTML</Skill>
+        <Skill>CSS</Skill>
+        <Skill>React</Skill>
+        <Skill>Node.js</Skill>
+    </Skills>
+    <Languages>
+        <Language>
+            <Name>English</Name>
+            <Proficiency>Fluent</Proficiency>
+        </Language>
+        <Language>
+            <Name>Spanish</Name>
+            <Proficiency>Intermediate</Proficiency>
+        </Language>
+    </Languages>
+    <Projects>
+        <Project>
+            <Title>Personal Portfolio Website</Title>
+            <Description>Designed and developed a personal portfolio website to showcase my projects and skills.</Description>
+            <Link>https://johndoe.dev</Link>
+        </Project>
+    </Projects>
+    <Certifications>
+        <Certification>
+            <Title>Certified JavaScript Developer</Title>
+            <Institution>Tech Institute</Institution>
+            <Year>2019</Year>
+        </Certification>
+    </Certifications>
+</CV>

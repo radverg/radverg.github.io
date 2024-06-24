@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="CV">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="PersonalInfo" minOccurs="1" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="FirstName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                            <xs:element name="LastName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                            <xs:element name="Email" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                            <xs:element name="Phone" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                            <xs:element name="Address" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                            <xs:element name="LinkedIn" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                            <xs:element name="GitHub" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Education" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Degree" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                            <xs:element name="Institution" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                            <xs:element name="Year" type="xs:gYear" minOccurs="1" maxOccurs="1"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="WorkExperience" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Position" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                            <xs:element name="Company" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                            <xs:element name="StartDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
+                            <xs:element name="EndDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
+                            <xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Skills" minOccurs="0" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Skill" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Languages" minOccurs="0" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Language" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                                        <xs:element name="Proficiency" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Projects" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Project" minOccurs="1" maxOccurs="1">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                                        <xs:element name="Description" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                                        <xs:element name="Link" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Certifications" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Certification" minOccurs="1" maxOccurs="1">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                                        <xs:element name="Institution" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                                        <xs:element name="Year" type="xs:gYear" minOccurs="1" maxOccurs="1"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
