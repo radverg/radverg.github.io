@@ -1,16 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="cv.xslt"?>
 
-<CV xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cv_schema.xsd">
-    <PersonalInfo>
-        <FirstName>John</FirstName>
-        <LastName>Doe</LastName>
-        <Email>john.doe@example.com</Email>
-        <Phone>+1234567890</Phone>
-        <Address>1234 Elm Street, Some City, Some Country</Address>
-        <LinkedIn>https://www.linkedin.com/in/johndoe</LinkedIn>
-        <GitHub>https://github.com/johndoe</GitHub>
+<CV xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cv_schema.xsd" 
+    lang="en">
+    <PersonalInfo title="Osobní informace">
+        <FirstName title="Jméno">Radek</FirstName>
+        <LastName title="Příjmení">Veverka</LastName>
+        <Email title="Email">radek.veverka@icloud.com</Email>
+        <Phone title="Telefon">777 996 598</Phone>
+        <Address title="Adresa">Maršov 163, Veverská Bítýška 664 71</Address>
+        <LinkedIn>
+            <Caption>radek-veverka-62a88b1b1</Caption>
+            <Href>https://www.linkedin.com/in/radek-veverka-62a88b1b1/</Href>
+        </LinkedIn>
+        <GitHub>
+            <Caption>radverg</Caption>
+            <Href>https://github.com/radverg</Href>
+        </GitHub>
+        
+        <BioCaption>SW vývojář se zaměřením na web a .NET</BioCaption>
+        <Portrait>portrait.jpg</Portrait>
+        <Birth>
+            <Date>3.1.1999</Date>
+            <Place>Brno</Place>
+            <Age>25</Age>
+        </Birth>
     </PersonalInfo>
+    
     <Education>
         <Degree>Bachelor of Science in Computer Science</Degree>
         <Institution>Some University</Institution>
