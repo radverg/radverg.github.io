@@ -50,23 +50,66 @@
         <StartDate>2022-06-01</StartDate>
         <Description>Leading a team of developers in creating innovative software solutions.</Description>
     </WorkExperience>
-    <Skills>
-        <Skill>JavaScript</Skill>
-        <Skill>HTML</Skill>
-        <Skill>CSS</Skill>
-        <Skill>React</Skill>
-        <Skill>Node.js</Skill>
-    </Skills>
+    <SkillSet title="Co hodně používám">
+        <Skill>C# .NET</Skill>
+        <Skill>ASP.NET Core</Skill>
+        <Skill>Blazor</Skill>
+        <Skill>Python</Skill>
+        <Skill>HTML/CSS/JS</Skill>
+        <Skill>OOP</Skill>
+        <Skill>MVC</Skill>
+        <Skill>Dependency Injection</Skill>
+        <Skill>SOLID principy</Skill>
+        <Skill>Asynchronní programování</Skill>
+        <Skill>Webový vývoj</Skill>
+        <Skill>REST API</Skill>
+        <Skill>Relační databáze (SQlite, MySQL)</Skill>
+        <Skill>ORM</Skill>
+        <Skill>GIT</Skill>
+    </SkillSet>
+
+    <SkillSet title="Co bych si musel oživit, ale zkušenost z minulosti mám">
+        <Skill>PHP</Skill>
+        <Skill>TypeScript</Skill>
+        <Skill>NodeJS</Skill>
+        <Skill>Angular</Skill>
+        <Skill>C++</Skill>
+        <Skill>C</Skill>
+    </SkillSet>
+
+    <SkillSet title="Co znám jen velmi povrchně nebo vůbec a potřeboval bych se doučit">
+        <Skill>Docker</Skill>
+        <Skill>Mikroslužby</Skill>
+        <Skill>CI/CD</Skill>
+        <Skill>Cloud</Skill>
+        <Skill>PowerShell</Skill>
+        <Skill>Neuronové sítě / AI</Skill>
+    </SkillSet>
+
+    <SkillSet title="Ostatní">
+        <Skill>řidičský průkaz B</Skill>
+    </SkillSet>
+
+    <Interests title="Zájmy">
+        <Interest>klavír</Interest>
+        <Interest>letadla</Interest>
+        <Interest>španělština</Interest>
+        <Interest>tenis</Interest>
+        <Interest>plavání</Interest>
+        <Interest>šachy</Interest>
+    </Interests>
+
     <Languages>
         <Language>
-            <Name>English</Name>
-            <Proficiency>Fluent</Proficiency>
+            <Name>angličtina</Name>
+            <Proficiency>B2-C1, maturita, FCE certifikát</Proficiency>
         </Language>
         <Language>
-            <Name>Spanish</Name>
-            <Proficiency>Intermediate</Proficiency>
+            <Name>španělština</Name>
+            <Proficiency>A2, učím se volnočasově</Proficiency>
         </Language>
     </Languages>
+    
     <Projects>
         <Project>
             <Title>Personal Portfolio Website</Title>

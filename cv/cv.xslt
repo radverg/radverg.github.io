@@ -61,93 +61,39 @@
                             </dl>
                         </section>
 
-                        <section>
-                            <h2>Co hodně používám</h2>
-                            <ul class="item-list">
-                                <li>C# .NET</li>
-                                <li>ASP.NET Core</li>
-                                <li>Blazor</li>
-                                <li>Python</li>
-                                <li>HTML/CSS/JS</li>
-                                <li>OOP</li>
-                                <li>MVC</li>
-                                <li>Dependency Injection</li>
-                                <li>SOLID principy</li>
-                                <li>Asynchronní programování</li>
-                                <li>Webový vývoj</li>
-                                <li>REST API</li>
-                                <!-- <li>UNIX terminál</li> -->
-                                <!-- <li>Externí autentizace</li> -->
-                                <li>Relační databáze (SQlite, MySQL)</li>
-                                <li>ORM</li>
-                                <li>GIT</li>
-                            </ul>
-                            
-                        </section>
+                        <xsl:for-each select="CV/SkillSet">
+                            <section>
+                                <h2><xsl:value-of select="@title" /></h2>
+                                <ul class="item-list">
+                                    <xsl:for-each select="Skill">
+                                        <li><xsl:value-of select="."/></li>
+                                    </xsl:for-each>
+                                </ul>
+                            </section>
+                        </xsl:for-each>
+
 
                         <section>
-                            <h2>Co bych si musel oživit, ale zkušenost z minulosti mám</h2>
+                            <h2><xsl:value-of select="CV/Languages/@title" /></h2>
                             <ul class="item-list">
-                                <li>PHP</li>
-                                <li>TypeScript</li>
-                                <li>NodeJS</li>
-                                <li>Angular</li>
-                                <li>C++</li>
-                                <li>C</li>
-                            </ul>
-                            
-                        </section>
-
-                        <section>
-                            <h2>Co znám jen velmi povrchně nebo vůbec a potřeboval bych se doučit</h2>
-                            
-                            <ul class="item-list">
-                                <li>Docker</li>
-                                <li>Mikroslužby</li>
-                                <li>CI/CD</li>
-                                <li>Cloud</li>
-                                <li>PowerShell</li>
-                                <li>Neuronové sítě / AI</li>
+                                <xsl:for-each select="CV/Languages/Language">
+                                    <li><strong><xsl:value-of select="Name"/></strong>, <xsl:value-of select="Proficiency"/></li>
+                                </xsl:for-each>
                             </ul>
                         </section>
 
 
-                        <section>
-                            <h2>Jazyky</h2>
-                            <!-- <dl>
-                                <div>
-                                    <dt>Angličtina</dt>
-                                    <dd>B2-C1, FCE certifikát</dd>
-                                </div>
-                
-                                <div>
-                                    <dt>Španělština</dt>
-                                    <dd>Učím se, cca A2</dd>
-                                </div>
-                            </dl> -->
-                            <ul class="item-list">
-                                <li><strong>angličtina B2-C1</strong>, maturita, FCE certifikát</li>
-                                <li><strong>španělština A2</strong>, učím se volnočasově</li>
-                            </ul>
-                        </section>
+                        <xsl:if test="CV/Interests">
+                            <section>
+                                <h2><xsl:value-of select="CV/Interests/@title" /></h2>
+                                <ul class="item-list">
+                                    <xsl:for-each select="CV/Interests/Interest">
+                                        <li><xsl:value-of select="."/></li>
+                                    </xsl:for-each>
+                                </ul>
+                            </section>
+                        </xsl:if>
 
-                        <!-- <section>
-                            <h2>Zájmy</h2>
-                            <ul class="item-list">
-                                <li>klavír</li>
-                                <li>letadla</li>
-                                <li>španělština</li>
-                                <li>tenis</li>
-                                <li>plavání</li>
-                                <li>šachy</li>
-                        </section> -->
-
-                        <section>
-                            <h2>Ostatní</h2>
-                            <ul class="item-list">
-                                <li>řidičák B</li>
-                            </ul>
-                        </section>
                     </div>
 
                     <div class="main-container">
