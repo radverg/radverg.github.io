@@ -1,0 +1,14 @@
+body {
+    height: 100vh;
+    overflow: hidden;
+}
+
+#app {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+
+.vertical-spacer {
+    flex: 1;
+}

@@ -1,14 +1,28 @@
 <html>
 <head>
- 
-  <style>
-    
-  </style>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 
 <body>
 <div id="app">
-  <h1>{{ message }}</h1>
+
+  <div class="d-flex justify-content-center mt-5">
+    <water-indicator :current="current_liters" :target="target_liters"></water-indicator>
+  </div>
+
+  <div class="mt-5 d-flex justify-content-center">
+    <button-adder @click="addWater" :value="100"></button-adder>
+    <button-adder @click="addWater" :value="300" /></button-adder>
+    <button-adder @click="addWater" :value="500" /></button-adder>
+  </div>
+
+  <div class="vertical-spacer"></div>
+
+  <div class="streak-container">
+    streak
+  </div>
+
 </div>
 </body>
 
@@ -22,15 +36,9 @@
 
 <script type="module">
   import { createApp, ref } from 'vue'
+  import Wd from './wd.js'
 
-  createApp({
-    setup() {
-      const message = ref('Hello Vues!')
-      return {
-        message
-      }
-    }
-  }).mount('#app')
+  createApp(Wd).mount('#app')
 </script>
 
 </html>
