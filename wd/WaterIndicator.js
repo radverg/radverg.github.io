@@ -53,8 +53,8 @@ export default {
       }
     },
     template: `
-      <div class="flex items-center justify-center">
-        <svg width="250" height="250" viewBox="0 0 100 100" class="relative">
+      <div class="d-flex items-items-center justify-content-center">
+        <svg viewBox="0 0 100 100" class="relative indicator-svg">
           <circle
             cx="50"
             cy="50"
@@ -87,7 +87,7 @@ export default {
             y="60%"
             text-anchor="middle"
             dominant-baseline="central"
-            class="text-sm text-gray-500"
+            style="font-size: 12px; fill: #d3d3d3;"
           >
             {{ percentage.toFixed(1) }}%
           </text>

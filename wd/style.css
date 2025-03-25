@@ -47,3 +47,7 @@ body {
     height: 40px;
     transform: translate(-12px, -5px); /* Moves the image */
 }
+
+.indicator-svg { 
+    width: 85%;
+}

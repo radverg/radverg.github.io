@@ -6,7 +6,7 @@ import FlashOverlay from "./FlashOverlay.js";
 const rewards = {
     "brumik": {
         "text": "BEBE BRUMÍK!",
-        "image_url": "brumik.jpg"
+        "image_url": "assets/brumik.jpg"
     }
 }
 
@@ -66,17 +66,31 @@ export default {
             }, 2000);
         },
 
+        closeOverlay() {
+            this.overlay = null;
+        },
+
         addWater(amount) {
             // console.log(amount)
-            let completedDay = this.current_liters + amount >= this.target_liters;
+            let wasCompleted = this.current_liters >= this.target_liters;
             this.current_liters += amount;
+            let isCompleted = this.current_liters >= this.target_liters;
+            this.records.push({
+                date: (new Date()).toISOString().slice(0, 10),
+                amount: amount
+            });
 
-            if (completedDay) {
+            if (!wasCompleted && isCompleted) {
                 this.dailyGoalCompleted();
             }
             else {
                 this.flash("Šikulka moje 🥰")
             }
+        },
+
+        dropLastRecord() {
+            this.records.pop();
+            this.save_data();
         },
 
         dailyGoalCompleted() {

@@ -2,7 +2,7 @@ export default {
     name: 'ButtonAdder',
     template: `
       <button @click="handleClick" class="btn btn-outline-primary mx-3 d-block">
-        <img class="img-glass" src="glass-of-water.png" alt="Glass of water" :style="{ transform: 'scale(' + value / 1000 + ')' }">
+        <img class="img-glass" src="assets/glass-of-water.png" alt="Glass of water" :style="{ transform: 'scale(' + value / 1000 + ')' }">
         <div class="small">+{{ value }} ml</div>
         <div v-for="(emoji, index) in emojis" :key="index" class="absolute text-3xl" :style="emoji.style">
           💕

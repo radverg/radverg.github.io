@@ -10,7 +10,11 @@ export default {
       },
       emoticon: {
         type: String,
-        default: '❤️'
+        default: '🥰'
+      },
+      duration: {
+        type: Number,
+        default: 10000
       }
     },
     data() {
@@ -18,8 +22,12 @@ export default {
         hearts: []
       };
     },
+    emits: ['done'],
     mounted() {
       this.spawnHearts();
+      setTimeout(() => {
+        this.$emit('done');
+      }, this.duration);
     },
     methods: {
       spawnHearts() {
@@ -29,6 +37,7 @@ export default {
             id,
             left: Math.random() * 100,
             top: Math.random() * 100,
+            fontSize: Math.random() * 2 + 1
           });
           setTimeout(() => {
             this.hearts = this.hearts.filter(heart => heart.id !== id);
@@ -37,15 +46,16 @@ export default {
       }
     },
     template: `
-      <div class="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex justify-content-center align-items-center">
+      <div class="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex justify-content-center align-items-center" @click="$emit('done')">
+        <TransitionGroup>
+            <div v-for="heart in hearts" :key="heart.id" :style="{ left: heart.left + '%', top: heart.top + '%', fontSize: heart.fontSize + '%' }" class="position-absolute fs-1">{{ emoticon }}</div>
+        </TransitionGroup>
+        
         <div class="bg-white p-4 rounded-3 shadow-lg text-center position-relative">
-          <img :src="image_url" alt="Image" class="rounded-circle mb-3" style="width: 100px; height: 100px; object-fit: cover;" />
+          <img v-if="image_url" :src="image_url" alt="Image" class="rounded-circle mb-3" style="width: 100px; height: 100px; object-fit: cover;" />
           <p class="h4 fw-semibold">{{ text }}</p>
         </div>
 
-        <Transform v-for="heart in hearts" :key="heart.id">
-            <div :style="{ left: heart.left + '%', top: heart.top + '%' }" class="position-absolute fs-1">{{ emoticon }}</div>
-        </Transform>
       </div>
     `
   };
