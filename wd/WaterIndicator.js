@@ -31,7 +31,7 @@ export default {
     },
     methods: {
       animateValue(newVal) {
-        const duration = 1000;
+        const duration = 800;
         const frameRate = 60;
         const totalFrames = Math.round((duration / 1000) * frameRate);
         const start = this.animatedCurrent;
@@ -54,7 +54,7 @@ export default {
     },
     template: `
       <div class="flex items-center justify-center">
-        <svg width="100" height="100" viewBox="0 0 100 100" class="relative">
+        <svg width="250" height="250" viewBox="0 0 100 100" class="relative">
           <circle
             cx="50"
             cy="50"

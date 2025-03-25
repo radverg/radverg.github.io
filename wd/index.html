@@ -1,6 +1,6 @@
 <html>
 <head>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 
@@ -11,17 +11,25 @@
     <water-indicator :current="current_liters" :target="target_liters"></water-indicator>
   </div>
 
+  <div class="flash-message-container">
+    <Transition>
+      <div v-if="flash_message" class="flash-message">{{ flash_message }}</div>
+    </Transition>
+  </div>
+
   <div class="mt-5 d-flex justify-content-center">
-    <button-adder @click="addWater" :value="100"></button-adder>
-    <button-adder @click="addWater" :value="300" /></button-adder>
-    <button-adder @click="addWater" :value="500" /></button-adder>
+    <button-adder @add="addWater" :value="100"></button-adder>
+    <button-adder @add="addWater" :value="300" /></button-adder>
+    <button-adder @add="addWater" :value="500" /></button-adder>
   </div>
 
   <div class="vertical-spacer"></div>
 
   <div class="streak-container">
-    streak
+    <streak-bar :total_parts="streak_target_days" :completed_parts="streak_current_days"></streak-bar>
   </div>
+
+  <flash-overlay v-if="overlay" :text="overlay.text" image_url="overlay.image_url"></flash-overlay>
 
 </div>
 </body>

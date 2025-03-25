@@ -12,3 +12,38 @@ body {
 .vertical-spacer {
     flex: 1;
 }
+
+.flash-message-container {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.v-enter-active {
+    transition: all 0.3s ease-out;
+  }
+
+.v-leave-active {
+  transition: all 0.3s ease-out;
+}
+  
+.v-enter-from,
+.v-leave-to {
+    transform: scale(0);
+    opacity: 0;
+}
+
+.img-glass {
+    width: 70px;
+    transform: scale(0.3); /* Scales down the image */
+    transform-origin: center; /* Keeps scaling centered */
+}
+
+.gift-image {
+    width: 40px;
+    height: 40px;
+    transform: translate(-12px, -5px); /* Moves the image */
+}
