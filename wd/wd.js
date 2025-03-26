@@ -6,16 +6,20 @@ import FlashOverlay from "./FlashOverlay.js";
 const rewards = {
     "brumik": {
         "text": "BEBE BRUMÍK!",
-        "image_url": "assets/brumik.jpg"
+        "image_url": "assets/brumik.jpg",
+        "emoticon": "🥳"
     }
 }
+
+const current_reward = rewards.brumik;
 
 const day_done_overlay = {
     "text": "Vendulka pije! Ráďa je šťastný! 🥰",
 }
 
 const day_failed_overlay = { 
-    "text": "Vendulka málo pije a Ráďa se o ni bojí 😢 Zítra pij víc miláčku, prosím.",
+    "text": "Vendulka málo pije a Ráďa se o ni bojí 😢 Dnes pij víc miláčku, prosím.",
+    "emoticon": "😢"
 }
 
 
@@ -31,7 +35,9 @@ export default {
         flash_message: null,
 
         streak_target_days: 7,
-        streak_current_days: 3,
+        streak_current_days: 0,
+
+        last_use: null,
 
         overlay: null
 
@@ -47,16 +53,27 @@ export default {
 
     created() {
         this.load_data();
+        this.current_liters = this.consumationForDate(this.current_date);
+        this.streak_current_days = this.streakForDate(this.current_date);
+    },
+
+    mounted() {
+        this.checkLastUse();
     },
 
     methods: {
         load_data() {
             this.records = JSON.parse(localStorage.getItem('records')) || []
+            // Convert dates to date objects
+            this.records.forEach(r => r.date = new Date(r.date));
+            let lastUse = localStorage.getItem('last_use');
+            this.last_use = lastUse ? new Date(lastUse) : new Date();
         },
 
         save_data() {
             const json_str = JSON.stringify(this.records);
             localStorage.setItem('records', json_str);
+            localStorage.setItem('last_use', this.last_use.toISOString());
         },
 
         flash(message) {
@@ -70,22 +87,48 @@ export default {
             this.overlay = null;
         },
 
+        checkLastUse() {
+
+            // Do we have new date? 
+            if (this.last_use.toDateString() !== (new Date()).toDateString()) {
+                // Last day failed?
+                let lastDay = new Date(this.last_use);
+                lastDay.setDate(lastDay.getDate() - 1);
+
+                if (this.streakForDate(lastDay) < 1) {
+                    // Failed, show overlay
+                    this.overlay = day_failed_overlay;
+                }
+            }
+
+            this.last_use = new Date();
+            this.save_data();
+        },
+
+
         addWater(amount) {
             // console.log(amount)
             let wasCompleted = this.current_liters >= this.target_liters;
             this.current_liters += amount;
             let isCompleted = this.current_liters >= this.target_liters;
-            this.records.push({
-                date: (new Date()).toISOString().slice(0, 10),
+            this.records.unshift({
+                date: (new Date()).toISOString(),
                 amount: amount
             });
 
             if (!wasCompleted && isCompleted) {
-                this.dailyGoalCompleted();
+                this.streak_current_days++;
+                if (this.streak_current_days == this.streak_target_days) {
+                    this.streakCompleted();
+                } else {
+                    this.dailyGoalCompleted();
+                }
             }
             else {
                 this.flash("Šikulka moje 🥰")
             }
+
+            this.save_data();
         },
 
         dropLastRecord() {
@@ -97,10 +140,29 @@ export default {
             this.overlay = day_done_overlay;
         },
 
-        consumation_for_date(date) {
+        streakCompleted() {
+            this.overlay = this.current_reward;
+        },
+
+        consumationForDate(date) {
             return this.records
-                .find(r => r.date === date)
+                .filter(r => r.toDateString() === date.toDateString())
                 .reduce((acc, r) => acc + r.liters, 0);
+        },
+
+        streakForDate(date) {
+            let streak = 0;
+            let current = date;
+            while (true) {
+                if (this.consumationForDate(current) >= this.target_liters) {
+                    streak++;
+                }
+                else {
+                    break;
+                }
+                current.setDate(current.getDate() - 1);
+            }
+            return streak % this.streak_target_days;
         }
 
     }
