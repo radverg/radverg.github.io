@@ -10,8 +10,8 @@ export default {
       }
     },
     template: `
-      <div class="d-flex align-items-center m-4">
-        <div class="progress position-relative flex-grow-1 rounded-pill" style="height: 24px;">
+      <div class="d-flex align-items-center">
+        <div class="progress position-relative flex-grow-1 rounded-pill" style="height: 50px;">
           <div 
             class="progress-bar bg-primary" 
             role="progressbar" 

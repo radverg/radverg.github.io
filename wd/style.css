@@ -13,6 +13,14 @@ body {
     flex: 1;
 }
 
+.streak-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+}
+
 .flash-message-container {
     height: 100px;
     display: flex;
@@ -37,15 +45,15 @@ body {
 }
 
 .img-glass {
-    width: 70px;
+    width: 200px;
     transform: scale(0.3); /* Scales down the image */
     transform-origin: center; /* Keeps scaling centered */
 }
 
 .gift-image {
-    width: 40px;
-    height: 40px;
-    transform: translate(-12px, -5px); /* Moves the image */
+    width: 70px;
+    height: 70px;
+    transform: translate(-20px, -8px); /* Moves the image */
 }
 
 .indicator-svg { 
@@ -59,13 +67,14 @@ body {
     padding: 10px 20px;
     border-radius: 10px;
     font-weight: 600;
-    margin: 0 10px;
+    display: block;
+    width: 25vw;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: box-shadow 0.15s ease-in-out;
   }
   
-  .btn-water:active {
+  .btn-water:active, .btn-water:focus {
     box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.15);
   }
   
