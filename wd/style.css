@@ -27,7 +27,7 @@ body {
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 4em;
 }
 
 .v-enter-active {
@@ -51,9 +51,9 @@ body {
 }
 
 .gift-image {
-    width: 70px;
-    height: 70px;
-    transform: translate(-20px, -8px); /* Moves the image */
+    width: 100px;
+    height: 100px;
+    transform: translate(-30px, -12px); /* Moves the image */
 }
 
 .indicator-svg { 

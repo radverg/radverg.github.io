@@ -37,7 +37,7 @@ export default {
             id,
             left: Math.random() * 100,
             top: Math.random() * 100,
-            fontSize: Math.random() * 2 + 1
+            fontSize: Math.round(Math.random() * 70 + 30)
           });
           setTimeout(() => {
             this.hearts = this.hearts.filter(heart => heart.id !== id);
@@ -48,7 +48,7 @@ export default {
     template: `
       <div class="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex justify-content-center align-items-center" @click="$emit('done')">
         <TransitionGroup>
-            <div v-for="heart in hearts" :key="heart.id" :style="{ left: heart.left + '%', top: heart.top + '%', fontSize: heart.fontSize + '%' }" class="position-absolute fs-1">{{ emoticon }}</div>
+            <div v-for="heart in hearts" :key="heart.id" :style="{ left: heart.left + '%', top: heart.top + '%', fontSize: heart.fontSize + 'px' }" class="position-absolute">{{ emoticon }}</div>
         </TransitionGroup>
         
         <div class="bg-white p-4 rounded-3 shadow-lg text-center position-relative">

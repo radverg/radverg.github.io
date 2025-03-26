@@ -34,7 +34,7 @@ export default {
 
         flash_message: null,
 
-        streak_target_days: 1,
+        streak_target_days: 7,
         streak_current_days: 0,
 
         last_use: null,
