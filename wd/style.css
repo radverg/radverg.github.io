@@ -76,5 +76,9 @@ body {
   
   .btn-water:active, .btn-water:focus {
     box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: inset 6px 6px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(0.95);
+    outline: none;
+    border-color: #2563eb; /* Slightly darker blue for feedback */
   }
   
