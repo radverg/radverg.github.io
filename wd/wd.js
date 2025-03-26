@@ -34,7 +34,7 @@ export default {
 
         flash_message: null,
 
-        streak_target_days: 7,
+        streak_target_days: 1,
         streak_current_days: 0,
 
         last_use: null,
@@ -141,13 +141,15 @@ export default {
         },
 
         streakCompleted() {
-            this.overlay = this.current_reward;
+            this.overlay = current_reward;
         },
 
         consumationForDate(date) {
-            return this.records
-                .filter(r => r.toDateString() === date.toDateString())
-                .reduce((acc, r) => acc + r.liters, 0);
+            const cons = this.records
+                .filter(r => r.date.toDateString() === date.toDateString())
+                .reduce((acc, r) => acc + r.amount, 0);
+            console.log(cons);
+            return cons;
         },
 
         streakForDate(date) {

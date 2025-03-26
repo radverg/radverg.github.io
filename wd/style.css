@@ -51,3 +51,21 @@ body {
 .indicator-svg { 
     width: 85%;
 }
+
+.btn-water {
+    border: 2px solid #3b82f6; /* Blue outline */
+    background-color: white;
+    color: #3b82f6; /* Blue text */
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    margin: 0 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: box-shadow 0.15s ease-in-out;
+  }
+  
+  .btn-water:active {
+    box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  

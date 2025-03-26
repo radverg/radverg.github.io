@@ -9,7 +9,6 @@
 <!-- Buttony - active state, vlastni styl, velikost -->
 <!-- Data managemet -->
 <!-- Fotky obrazky -->
-<!-- Urcovani aktualni odmeny -->
 <!-- Layout - umistit streak panel na bottom - problem s vh  -->
 <body>
 <div id="app">
@@ -35,7 +34,7 @@
   </div>
 
   <Transition>
-    <flash-overlay v-if="overlay" @done="closeOverlay" :text="overlay.text" image_url="overlay.image_url"></flash-overlay>
+    <flash-overlay v-if="overlay" @done="closeOverlay" :text="overlay.text" :image_url="overlay.image_url" :emoticon="overlay.emoticon"></flash-overlay>
   </Transition>
   
 </div>
