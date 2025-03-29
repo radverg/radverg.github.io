@@ -61,6 +61,32 @@ export default {
         this.checkLastUse();
     },
 
+    template: `
+        <water-indicator :current="current_liters" :target="target_liters" class="mt-5"></water-indicator>
+
+        <div class="flash-message-container">
+            <Transition>
+            <div v-if="flash_message" class="flash-message">{{ flash_message }}</div>
+            </Transition>
+        </div>
+
+        <div class="mt-5 d-flex justify-content-around">
+            <button-adder @add="addWater" :value="100"></button-adder>
+            <button-adder @add="addWater" :value="300"></button-adder>
+            <button-adder @add="addWater" :value="500"></button-adder>
+        </div>
+
+        <div class="vertical-spacer"></div>
+
+        <div class="streak-container">
+            <streak-bar :total_parts="streak_target_days" :completed_parts="streak_current_days"></streak-bar>
+        </div>
+
+        <Transition>
+            <flash-overlay v-if="overlay" @done="closeOverlay" :text="overlay.text" :image_url="overlay.image_url" :emoticon="overlay.emoticon"></flash-overlay>
+        </Transition>
+        `,
+
     methods: {
         load_data() {
             this.records = JSON.parse(localStorage.getItem('records')) || []
@@ -95,7 +121,7 @@ export default {
                 let lastDay = new Date(this.last_use);
                 lastDay.setDate(lastDay.getDate() - 1);
 
-                if (this.streakForDate(lastDay) < 1) {
+                if (this.consumationForDate(lastDay) < this.target_liters) {
                     // Failed, show overlay
                     this.overlay = day_failed_overlay;
                 }
@@ -146,24 +172,25 @@ export default {
 
         consumationForDate(date) {
             const cons = this.records
-                .filter(r => r.date.toDateString() === date.toDateString())
+                .filter(r => {
+                    console.log(r.date.toDateString(), date.toDateString())
+                    return r.date.toDateString() === date.toDateString()
+                } )
                 .reduce((acc, r) => acc + r.amount, 0);
             console.log(cons);
             return cons;
         },
 
         streakForDate(date) {
-            let streak = 0;
+            let streak = (this.consumationForDate(date) >= this.target_liters) ? 1 : 0;
             let current = date;
-            while (true) {
-                if (this.consumationForDate(current) >= this.target_liters) {
-                    streak++;
-                }
-                else {
-                    break;
-                }
+            current.setDate(current.getDate() - 1);
+
+            while (this.consumationForDate(current) >= this.target_liters) {
+                streak++;
                 current.setDate(current.getDate() - 1);
             }
+
             return streak % this.streak_target_days;
         }
 

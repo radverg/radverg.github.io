@@ -14,7 +14,7 @@ export default {
       },
       duration: {
         type: Number,
-        default: 30000
+        default: 300000
       }
     },
     data() {
@@ -51,9 +51,9 @@ export default {
             <div v-for="heart in hearts" :key="heart.id" :style="{ left: heart.left + '%', top: heart.top + '%', fontSize: heart.fontSize + 'px' }" class="position-absolute">{{ emoticon }}</div>
         </TransitionGroup>
         
-        <div class="bg-white p-4 rounded-3 shadow-lg text-center position-relative">
+        <div class="bg-white p-4 m-3 rounded-3 shadow-lg text-center position-relative">
           <img v-if="image_url" :src="image_url" alt="Image" class="rounded-circle mb-3" style="width: 100px; height: 100px; object-fit: cover;" />
-          <p class="h4 fw-semibold">{{ text }}</p>
+          <p class="h1 fw-semibold">{{ text }}</p>
         </div>
 
       </div>
