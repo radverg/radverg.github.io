@@ -118,10 +118,10 @@ export default {
             // Do we have new date? 
             if (this.last_use.toDateString() !== (new Date()).toDateString()) {
                 // Last day failed?
-                let lastDay = new Date(this.last_use);
-                lastDay.setDate(lastDay.getDate() - 1);
+                let yesterday = new Date();
+                yesterday.setDate(yesterday.getDate() - 1);
 
-                if (this.consumationForDate(lastDay) < this.target_liters) {
+                if (this.consumationForDate(yesterday) < this.target_liters) {
                     // Failed, show overlay
                     this.overlay = day_failed_overlay;
                 }
